@@ -8,45 +8,54 @@
     <script type="module" src="./index.js"></script>
   </head>
   <body>
-    <h1>Welcome to Friends App!</h1>
-    <button type="button" class="start-btn">Get new friends</button>
-    <form class="form-js">
-      <label for="name-query">
-        Type a name
-        <input type="text" id="name-query" name="name-query" />
-      </label>
+    <div class="container">
+      <h1 class="main-title">Welcome to Friends App!</h1>
+      <button type="button" class="start-btn">Get new friends</button>
+      <form class="form-js is-hidden">
+        <p>Type a name</p>
+        <input type="text" name="query" />
 
-      <p>Sort by gender:</p>
-      <label>
-        <input type="radio" name="gender" value="All" />
-        All
-      </label>
-      <label>
-        <input type="radio" name="gender" value="man" />
-        Man
-      </label>
-      <label>
-        <input type="radio" name="gender" value="woman" />
-        Woman
-      </label>
-      <p>Sort by Age:</p>
-      <label>
-        <input type="radio" name="age" value="asc" />
-        Asc
-      </label>
-      <label>
-        <input type="radio" name="age" value="desc" />
-        Desc
-      </label>
-      <p>Sort by Name:</p>
-      <label>
-        <input type="radio" name="name" value="asc" />
-        Asc
-      </label>
-      <label>
-        <input type="radio" name="name" value="desc" />
-        Desc
-      </label>
-    </form>
+        <p>Sort by gender:</p>
+        <label>
+          <input type="radio" name="gender" value="All" />
+          All
+        </label>
+        <label>
+          <input type="radio" name="gender" value="male" />
+          Male
+        </label>
+        <label>
+          <input type="radio" name="gender" value="female" />
+          Female
+        </label>
+        <p>Sort by Age:</p>
+        <label>
+          <input type="radio" name="age" value="asc" />
+          Asc
+        </label>
+        <label>
+          <input type="radio" name="age" value="desc" />
+          Desc
+        </label>
+        <label>
+          <input type="radio" name="age" value="all" />
+          All
+        </label>
+        <p>Sort by Name:</p>
+        <label>
+          <input type="radio" name="name" value="asc" />
+          Asc
+        </label>
+        <label>
+          <input type="radio" name="name" value="desc" />
+          Desc
+        </label>
+        <label>
+          <input type="radio" name="name" value="all" />
+          All
+        </label>
+      </form>
+      <div class="friends-container"></div>
+    </div>
   </body>
 </html>
