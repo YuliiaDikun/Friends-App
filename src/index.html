@@ -3,12 +3,50 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page title</title>
+    <title>Friends App</title>
     <link rel="stylesheet" href="./sass/index.scss" />
     <script type="module" src="./index.js"></script>
   </head>
   <body>
-    <!-- ❗️❗️❗️ Add partials like so for every page -->
-    <include src="./partials/example.html"></include>
+    <h1>Welcome to Friends App!</h1>
+    <button type="button" class="start-btn">Get new friends</button>
+    <form class="form-js">
+      <label for="name-query">
+        Type a name
+        <input type="text" id="name-query" name="name-query" />
+      </label>
+
+      <p>Sort by gender:</p>
+      <label>
+        <input type="radio" name="gender" value="All" />
+        All
+      </label>
+      <label>
+        <input type="radio" name="gender" value="man" />
+        Man
+      </label>
+      <label>
+        <input type="radio" name="gender" value="woman" />
+        Woman
+      </label>
+      <p>Sort by Age:</p>
+      <label>
+        <input type="radio" name="age" value="asc" />
+        Asc
+      </label>
+      <label>
+        <input type="radio" name="age" value="desc" />
+        Desc
+      </label>
+      <p>Sort by Name:</p>
+      <label>
+        <input type="radio" name="name" value="asc" />
+        Asc
+      </label>
+      <label>
+        <input type="radio" name="name" value="desc" />
+        Desc
+      </label>
+    </form>
   </body>
 </html>
