@@ -3,11 +3,13 @@ import SearchFriends from './fetchFriends';
 const startBtn = document.querySelector('.start-btn');
 const form = document.querySelector('.form-js');
 const divFriends = document.querySelector('.friends-container');
+const resetBtn = document.querySelector('.reset');
 
 const searchFriensd = new SearchFriends();
 
 startBtn.addEventListener('click', onStartBtn);
 form.addEventListener('input', onFormChange);
+resetBtn.addEventListener('click', onResetBtn);
 
 function onStartBtn() {
   form.classList.remove('is-hidden');
@@ -34,20 +36,27 @@ function onFormChange(e) {
   createMarkUp(searchFriensd.findFriend(userLetter));
 
   if (userGender) {
-    console.log(searchFriensd);
     createMarkUp(searchFriensd.sortFriendsByGender(userGender, !!userLetter));
   }
-  console.log(searchFriensd);
+
   if (userAge) {
-    console.log(searchFriensd);
     createMarkUp(
       searchFriensd.sortFriendsByAge(userAge, !!userLetter || !!userGender)
     );
   }
   if (userName) {
-    console.log(searchFriensd);
-    createMarkUp(searchFriensd.sortFriendsByName(name.value));
+    createMarkUp(
+      searchFriensd.sortFriendsByName(
+        userName,
+        !!userLetter || !!userGender || !!userAge
+      )
+    );
   }
+}
+
+function onResetBtn() {
+  createMarkUp(searchFriensd.friends);
+  form.reset();
 }
 
 function createMarkUp(arrOfFriends) {

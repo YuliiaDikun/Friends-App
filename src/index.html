@@ -17,7 +17,7 @@
 
         <p>Sort by gender:</p>
         <label>
-          <input type="radio" name="gender" value="All" />
+          <input type="radio" name="gender" value="All" checked />
           All
         </label>
         <label>
@@ -30,7 +30,10 @@
         </label>
 
         <p>Sort by Age:</p>
-
+        <label>
+          <input type="radio" name="age" value="All" />
+          All
+        </label>
         <label>
           <input type="radio" name="age" value="asc" />
           Asc
@@ -41,7 +44,10 @@
         </label>
 
         <p>Sort by Name:</p>
-
+        <label>
+          <input type="radio" name="name" value="All" />
+          All
+        </label>
         <label>
           <input type="radio" name="name" value="asc" />
           Asc
@@ -51,7 +57,7 @@
           Desc
         </label>
 
-        <button type="button" name="reset">Reset</button>
+        <button type="button" name="reset" class="reset">Reset</button>
       </form>
       <ul class="friends-container"></ul>
     </div>

@@ -20,6 +20,7 @@ export default class SearchFriends {
     return this.arrayOfFriends.push(newFriends);
   }
   findFriend(letter) {
+    console.log(this);
     this.sortedArray = this.arrayOfFriends.filter(
       friend =>
         friend.name.first.toLowerCase().includes(letter) ||
@@ -28,8 +29,9 @@ export default class SearchFriends {
 
     return letter ? this.sortedArray : this.arrayOfFriends;
   }
-  sortFriendsByGender(gender, flag = false) {
-    console.log(flag);
+  sortFriendsByGender(gender, flag) {
+    this.sortedArray;
+    console.log(this);
     if (flag && gender !== 'All') {
       return this.sortedArray.filter(friend => friend.gender === gender);
     } else if (flag && gender === 'All') {
@@ -44,33 +46,47 @@ export default class SearchFriends {
     }
   }
   sortFriendsByAge(par, flag) {
-    console.log(flag);
-
+    console.log(this);
     if (flag && par === 'asc') {
       return [...this.sortedArray].sort((a, b) => a.dob.age - b.dob.age);
     } else if (flag && par === 'desc') {
       return [...this.sortedArray].sort((a, b) => b.dob.age - a.dob.age);
+    } else if (flag && par === 'All') {
+      return this.sortedArray;
     } else if (!flag && par === 'asc') {
       console.log('this is third if');
       return [...this.arrayOfFriends].sort((a, b) => a.dob.age - b.dob.age);
     } else if (!flag && par === 'desc') {
       console.log('this is fourth if');
       return [...this.arrayOfFriends].sort((a, b) => b.dob.age - a.dob.age);
-    }
-  }
-  sortFriendsByName(par) {
-    let sortedFriends = [];
-    if (par === 'asc') {
-      sortedFriends = [...this.arrayOfFriends].sort((a, b) =>
-        a.name.first.localeCompare(b.name.first)
-      );
-    } else if (par === 'desc') {
-      sortedFriends = [...this.arrayOfFriends].sort((a, b) =>
-        b.name.first.localeCompare(a.name.first)
-      );
-    } else {
+    } else if (!flag && par === 'All') {
       return this.arrayOfFriends;
     }
-    return sortedFriends;
+  }
+  sortFriendsByName(par, flag) {
+    console.log(this);
+    if (flag && par === 'asc') {
+      return [...this.sortedArray].sort((a, b) =>
+        a.name.first.localeCompare(b.name.first)
+      );
+    } else if (flag && par === 'desc') {
+      return [...this.sortedArray].sort((a, b) =>
+        b.name.first.localeCompare(a.name.first)
+      );
+    } else if (flag && par === 'All') {
+      return this.sortedArray;
+    } else if (!flag && par === 'asc') {
+      console.log('this is third if');
+      return [...this.arrayOfFriends].sort((a, b) =>
+        a.name.first.localeCompare(b.name.first)
+      );
+    } else if (!flag && par === 'desc') {
+      console.log('this is fourth if');
+      return [...this.arrayOfFriends].sort((a, b) =>
+        b.name.first.localeCompare(a.name.first)
+      );
+    } else if (!flag && par === 'All') {
+      return this.arrayOfFriends;
+    }
   }
 }
