@@ -21,27 +21,31 @@ function onStartBtn() {
 }
 
 function onFormChange(e) {
+  e.preventDefault();
   const {
-    elements: { query, gender, age, name },
+    elements: { query, gender, age, name, reset },
   } = e.currentTarget;
 
-  if (query.value) {
-    createMarkUp(searchFriensd.findFriend(query.value));
-  } else if (!query.value) {
-    createMarkUp(searchFriensd.friends);
-  }
+  let userLetter = query.value.trim().toLowerCase();
+  let userGender = gender.value;
+  let userAge = age.value;
+  let userName = name.value;
 
-  if (gender.value) {
-    createMarkUp(searchFriensd.sortFriendsByGender(gender.value));
-  }
-  if (gender.value === 'All') {
-    createMarkUp(searchFriensd.friends);
-  }
+  createMarkUp(searchFriensd.findFriend(userLetter));
 
-  if (age.value) {
-    createMarkUp(searchFriensd.sortFriendsByAge(age.value));
+  if (userGender) {
+    console.log(searchFriensd);
+    createMarkUp(searchFriensd.sortFriendsByGender(userGender, !!userLetter));
   }
-  if (name.value) {
+  console.log(searchFriensd);
+  if (userAge) {
+    console.log(searchFriensd);
+    createMarkUp(
+      searchFriensd.sortFriendsByAge(userAge, !!userLetter || !!userGender)
+    );
+  }
+  if (userName) {
+    console.log(searchFriensd);
     createMarkUp(searchFriensd.sortFriendsByName(name.value));
   }
 }
@@ -49,13 +53,13 @@ function onFormChange(e) {
 function createMarkUp(arrOfFriends) {
   const markup = arrOfFriends
     .map(friend => {
-      return `<div class="friend">
+      return `<li class="friend">
         <img src="${friend.picture.large}" alt="" class="friend-img" width="200" />
         <h2 class="friend-name">${friend.name.first} ${friend.name.last}</h2>
         <h3 class="friend-age">Age: ${friend.dob.age}</h3>
         <p class="friend-gender">Gender: ${friend.gender}</p>
         <p class="friend-email">Email:${friend.email}</p>
-      </div>`;
+      </li>`;
     })
     .join('');
   divFriends.innerHTML = markup;
