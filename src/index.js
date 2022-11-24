@@ -25,7 +25,7 @@ function onStartBtn() {
 function onFormChange(e) {
   e.preventDefault();
   const {
-    elements: { query, gender, age, name, reset },
+    elements: { query, gender, age, name },
   } = e.currentTarget;
 
   let userLetter = query.value.trim().toLowerCase();

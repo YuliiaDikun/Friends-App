@@ -39,7 +39,8 @@ export default class SearchFriends {
       return this.sortedArray;
     } else if (!flag && gender !== 'All') {
       console.log('this is third if');
-      return this.arrayOfFriends.filter(friend => friend.gender === gender);
+      this.sortedArray = this.arrayOfFriends.filter(friend => friend.gender === gender);
+      return this.sortedArray;
     } else if (!flag && gender === 'All') {
       console.log('this is fourth if');
       return this.arrayOfFriends;
@@ -60,6 +61,7 @@ export default class SearchFriends {
       console.log('this is fourth if');
       return [...this.arrayOfFriends].sort((a, b) => b.dob.age - a.dob.age);
     } else if (!flag && par === 'All') {
+        console.log('this is fifth if');
       return this.arrayOfFriends;
     }
   }
